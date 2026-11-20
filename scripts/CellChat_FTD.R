@@ -25,18 +25,18 @@ metadata = data.frame(data$obs)
 # See if rownames of metdata match column names of count matrix
 identical(colnames(norm_count_matrix), rownames(metadata)) 
 
-unique(metadata$annotation) # This is the cell annotation column, which will be used in 'group.by' below. What groups you want to find ligands and receptors in
+unique(metadata$annotation_04142026) # This is the cell annotation column, which will be used in 'group.by' below. What groups you want to find ligands and receptors in
 colnames(metadata)[colnames(metadata) == "SampleID"] <- "samples"
 
 ### Create CellChat object
-cellchat <- createCellChat(object = norm_count_matrix, meta = metadata, group.by = "annotation")
+cellchat <- createCellChat(object = norm_count_matrix, meta = metadata, group.by = "annotation_04142026")
 
-cellchat <- setIdent(cellchat, ident.use = "annotation") # set "labels" as default cell identity
+cellchat <- setIdent(cellchat, ident.use = "annotation_04142026") # set "labels" as default cell identity
 
 levels(cellchat@idents) # show factor levels of the cell labels
 groupSize <- as.numeric(table(cellchat@idents)) # number of cells in each cell group
 
-cellchat <- setIdent(cellchat, ident.use = "annotation") # set "labels" as default cell identity
+cellchat <- setIdent(cellchat, ident.use = "annotation_04142026") # set "labels" as default cell identity
 
 levels(cellchat@idents) # show factor levels of the cell labels
 groupSize <- as.numeric(table(cellchat@idents)) # number of cells in each cell group
