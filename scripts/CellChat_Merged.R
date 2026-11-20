@@ -77,6 +77,18 @@ for (i in 1:2) {
 dev.off()
 
 
+pdf("Glutamate_InNeu.pdf", width = 12, height = 4)
+
+cells_of_interest <- c("ExNeu RNF220-", "ExNeu RNF220+")
+pathways.show <- c("Glutamate") 
+weight.max <- getMaxWeight(object.list, slot.name = c("netP"), attribute = pathways.show) # control the edge weights across different datasets
+par(mfrow = c(1,2), xpd=TRUE)
+for (i in 1:2) {
+  netVisual_aggregate(object.list[[i]], signaling = pathways.show, layout = "circle", edge.weight.max = weight.max[1], edge.width.max = 10, signaling.name = paste(pathways.show, names(object.list)[i]), sources.use = cells_of_interest)
+} 
+
+dev.off()
+
 
 
 
