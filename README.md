@@ -16,23 +16,9 @@ audit trail and intermediate `.rds` output.
 
 ---
 
-## Pipeline Flow
+## Pipeline Workflow
 
-```
-FTD_adata.h5ad ───────► CellChat_FTD.R ───────► cellChat_FTD.rds
-                                                       │
-Control_adata.h5ad ───► CellChat_Control.R ──► cellChat_Control.rds
-                                                       │
-                                                       ▼
-                                          CellChat_Merge.R
-                                                       │
-                                                       ▼
-                              cellchat_merged_FTD_vs_Control.RData
-                              cellchat_object.list_FTD_vs_Control.RData
-                              heatmap_cellchat_FTDvControl_strength.svg
-                              GABA_InNeu.pdf
-                              (differential interaction plots)
-```
+![screenshot](images/cell_cell_communication.png)
 
 ---
 
